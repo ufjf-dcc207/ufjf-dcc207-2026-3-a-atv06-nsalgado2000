@@ -1,13 +1,11 @@
 import Emoji from "./Emoji";
 
-
 function App() {
-
   return (
     <>
-    <Emoji/>
+      <Emoji />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
