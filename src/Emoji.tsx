@@ -5,17 +5,25 @@ const EMOJI_MAP = new Map<EMOJI_KEYS, string>([
   ["dead", "💀"],
 ]);
 
-function happyClick(){
-  console.log("Happy")
-}
-function sickClick(){
-  console.log("sick")
-}
-function deadClick(){
-  console.log("dead")
-}
-
 export default function Emoji() {
+  function happyClick() {
+    console.log("Status :", status);
+    console.log("Happy");
+    status = "happy";
+    console.log("Status :", status);
+  }
+  function sickClick() {
+    console.log("Status :", status);
+    console.log("sick");
+    status = "sick";
+    console.log("Status :", status);
+  }
+  function deadClick() {
+    console.log("Status :", status);
+    console.log("dead");
+    status = "dead";
+    console.log("Status :", status);
+  }
   let status: EMOJI_KEYS = "sick";
   return (
     <>
