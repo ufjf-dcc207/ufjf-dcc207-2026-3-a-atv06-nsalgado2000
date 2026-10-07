@@ -8,6 +8,12 @@ const EMOJI_MAP = new Map<EMOJI_KEYS, string>([
 function happyClick(){
   console.log("Happy")
 }
+function sickClick(){
+  console.log("sick")
+}
+function deadClick(){
+  console.log("dead")
+}
 
 export default function Emoji() {
   let status: EMOJI_KEYS = "sick";
@@ -15,9 +21,9 @@ export default function Emoji() {
     <>
       <div className="emoji">{EMOJI_MAP.get(status) || "👻"}</div>
       <div className="acoes">
-        <button>Happy</button>
-        <button>Sick</button>
-        <button>Dead</button>
+        <button onClick={happyClick}>Happy</button>
+        <button onClick={sickClick}>Sick</button>
+        <button onClick={deadClick}>Dead</button>
       </div>
     </>
   );
