@@ -14,6 +14,7 @@ export default function Emoji() {
   const [comida, setComida] = useState<number>(4);
   const [energia, setEnergia] = useState<number>(1);
   const [agua, setAgua] = useState<number>(2);
+  const [luz, setLuz] = useState<boolean>(true);
 
   function alimentarClick() {
     setComida(Math.min(5, comida + 1));
@@ -21,9 +22,17 @@ export default function Emoji() {
   function hidratarClick() {
     setAgua(Math.min(5, agua + 1));
   }
-  function alternarLuzClick() {}
+  function alternarLuzClick() {
+    setLuz(!luz);
+  }
 
-  function cicloClick() {}
+  function cicloClick() {
+    if (!luz) {
+      setEnergia(Math.min(5, energia + 1));
+    } else {
+      setEnergia(Math.max(0, energia - 1));
+    }
+  }
 
   return (
     <>
@@ -34,12 +43,15 @@ export default function Emoji() {
           <Atributo icone="🍗" valor={comida} />
           <Atributo icone="💦" valor={agua} />
           <Atributo icone="⚡" valor={energia} />
+          {luz && "💡"}
         </div>
 
         <div className="acoes">
           <button onClick={alimentarClick}>Alimentar</button>
           <button onClick={hidratarClick}>Hidratar</button>
-          <button onClick={alternarLuzClick}>Ligar Luz</button>
+          <button onClick={alternarLuzClick}>
+            {luz ? "desligar" : "ligar"}
+          </button>
           <button onClick={cicloClick}>Ciclo</button>
         </div>
       </div>
