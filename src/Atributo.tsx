@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Atributo.css";
+//import "./Atributo.css";
 
 type AtributoProps = {
   icone: string;
