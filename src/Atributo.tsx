@@ -5,6 +5,8 @@ type AtributoProps = {
   icone: string;
 };
 
+type ValoresPossiveis = 1 | 2 | 3 | 4 | 5;
+
 export default function Atributo({ icone }: AtributoProps) {
   const [valor, setValor] = useState(0);
 
@@ -23,4 +25,10 @@ export default function Atributo({ icone }: AtributoProps) {
       <button onClick={onValueUp}>+</button>
     </div>
   );
+}
+
+function updateValor(prevValor: ValoresPossiveis) {
+  if (prevValor === 5) {
+    return 0;
+  } else return prevValor + 1;
 }
