@@ -9,31 +9,22 @@ const EMOJI_MAP = new Map<EMOJI_KEYS, string>([
 
 export default function Emoji() {
   const [status, setStatus] = useState<EMOJI_KEYS>("sick");
-  function happyClick() {
-    console.log("Status :", status);
-    console.log("Happy");
-    setStatus("happy");
-    console.log("Status :", status);
-  }
-  function sickClick() {
-    console.log("Status :", status);
-    console.log("sick");
-    setStatus("sick");
-    console.log("Status :", status);
-  }
-  function deadClick() {
-    console.log("Status :", status);
-    console.log("dead");
-    setStatus("dead");
-    console.log("Status :", status);
-  }
+  function alimentarClick() {}
+  function hidratarClick() {}
+  function alternarLuzClick() {}
+
+  function cicloClick() {}
+
   return (
     <>
-      <div className="emoji">{EMOJI_MAP.get(status) || "👻"}</div>
-      <div className="acoes">
-        <button onClick={happyClick}>Happy</button>
-        <button onClick={sickClick}>Sick</button>
-        <button onClick={deadClick}>Dead</button>
+      <div className="emoji">
+        <div className="face">{EMOJI_MAP.get(status) || "👻"}</div>
+        <div className="acoes">
+          <button onClick={alimentarClick}>Alimentar</button>
+          <button onClick={hidratarClick}>Hidratar</button>
+          <button onClick={alternarLuzClick}>Ligar Luz</button>
+          <button onClick={cicloClick}>Ciclo</button>
+        </div>
       </div>
     </>
   );
