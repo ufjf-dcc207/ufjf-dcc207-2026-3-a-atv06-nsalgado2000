@@ -9,7 +9,7 @@ const EMOJI_MAP = new Map<EMOJI_KEYS, string>([
 ]);
 
 export default function Emoji() {
-  const [status, setStatus] = useState<EMOJI_KEYS>("sick");
+  const [status, setStatus] = useState<EMOJI_KEYS>("happy");
   const [vida, setVida] = useState<number>(5);
   const [comida, setComida] = useState<number>(4);
   const [energia, setEnergia] = useState<number>(1);
@@ -27,10 +27,21 @@ export default function Emoji() {
   }
 
   function cicloClick() {
+    setComida(Math.max(0, comida - 1));
+    if (comida === 0) {
+      setVida(Math.max(0, vida - 1));
+    }
+    setAgua(Math.max(0, agua - 1));
+    if (agua === 0) {
+      setVida((prevVida) => Math.max(0, prevVida - 1));
+    }
     if (!luz) {
       setEnergia(Math.min(5, energia + 1));
     } else {
       setEnergia(Math.max(0, energia - 1));
+    }
+    if (energia === 0) {
+      setVida((prevVida) => Math.max(0, prevVida - 1));
     }
   }
 
