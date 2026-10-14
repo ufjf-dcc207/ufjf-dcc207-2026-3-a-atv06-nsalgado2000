@@ -16,10 +16,10 @@ export default function Emoji() {
   const [agua, setAgua] = useState<number>(2);
 
   function alimentarClick() {
-    setComida(comida + 1);
+    setComida(Math.min(5, comida + 1));
   }
   function hidratarClick() {
-    setAgua(agua + 1);
+    setAgua(Math.min(5, agua + 1));
   }
   function alternarLuzClick() {}
 
